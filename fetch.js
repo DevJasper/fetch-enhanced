@@ -83,18 +83,14 @@ http.Request = class {
       this.readableStreamHandler(reader);
     }
 
-    const allChunks = new Uint8Array(receivedStreamLength);
+    let allChunks = new Uint8Array(receivedStreamLength);
     let position = 0;
 
     for (const chunk of chunks) {
       allChunks.set(chunk, position);
       position += chunk.length;
     }
-
-    const decoder = new TextDecoder("utf-8");
-    const data = decoder.decode(allChunks);
-
-    return data;
+    return new TextDecoder("utf-8").decode(allChunks);
   }
 
   /**
