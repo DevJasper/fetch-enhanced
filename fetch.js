@@ -1,7 +1,7 @@
 "use strict";
 
 /**
- * The global trygot namespace.
+ * The global http namespace.
  *
  *@namespace http
  * @export
