@@ -53,12 +53,19 @@ http.Request = class {
     Object.assign(this, config);
   }
 
+  /**
+   * Sets usable listening events
+   * @param {!Object} events
+   * @public
+   */
   on(events = {}) {
     Object.assign(this.events, events);
   }
+
   /**
    * Handles the request stream
    * @param {!ReadableStream} reader
+   * @return {!Promise<String>}
    * @private
    */
 
@@ -95,6 +102,7 @@ http.Request = class {
 
   /**
    * Handles the returned response
+   * @return {!Promise<String>}
    * @private
    */
 
@@ -105,6 +113,7 @@ http.Request = class {
 
   /**
    * Perform get request
+   * @return {!Promise<String>}
    * @public
    */
 
@@ -115,6 +124,7 @@ http.Request = class {
   /**
    * Perform post request
    * @param {!String | !FormData} data
+   * @return {!Promise<String>}
    * @public
    */
 
